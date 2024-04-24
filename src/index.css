@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------------- Song Cntainer Section ---------------- */
+.r-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.song-container:hover .song-bg {
+    background-color: #0000005e;
+}
+.song-container:hover .song-bg .song-play {
+    display: contents;
+}
+
+/* ---------------- Music Player Section ---------------- */
+.change-bar input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background: #fff;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+}
+
+#mp-container {
+    transition: width 0.5s ease-out, height 0.5s ease-out;
+}
+#mp-container:hover {
+    height: 16rem;
+    width: 716px;
+}
+
+#mp-container .mp-items-unhide {
+    opacity: 0;
+    transition: opacity 0.4s ease-out;
+}
+#mp-container:hover .mp-items-unhide {
+    opacity: 1;
+}
+
+#mp-container #mp-center-image {
+    box-shadow: 1px 1px 25px 2px #00000081;
+    transition: all 0.5s ease-out;
+}
+#mp-container:hover #mp-center-image {
+    width: 9rem;
+    height: 9rem;
+    box-shadow: 1px 1px 40px 1px #000000b2;
+}
+
+#mp-container .image-resize {
+    transition: all 0.5s ease-out;
+}
+#mp-container:hover .image-resize {
+    margin-top: -250px;
+    height: 736px;
+}
+
+@media not all and (min-width: 768px) {
+    #mp-container {
+        transition: width 0.7s ease-out;
+    }
+    #mp-container:hover {
+        width: 90%;
+    }
+}
+
+
+/* ---------------- Profile Section ---------------- */
+#profile-container {
+    margin-right: 1.5rem;
+    width: 3.75rem;
+    transition: all 0.6s ease-out;
+}
+#profile-container:hover {
+    margin-right: 0;
+    width: 7.15rem;
+}
+#profile-container #profile-logo {
+    transition: all 0.6s ease-out;
+}
+#profile-container #arrow-icon {
+    opacity: 0;
+    transition: all 0.6s ease-out;
+}
+#profile-container:hover #profile-logo {
+    margin-right: 3rem;
+}
+#profile-container:hover #arrow-icon {
+    opacity: 1;
+    margin-left: 4rem;
+}
