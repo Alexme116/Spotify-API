@@ -81,6 +81,19 @@ const SongsContainer = ({ songs, setSongSelected, mpActive, setMpActive }) => {
         localStorage.setItem('id_device', response.devices[0].id)
     }
 
+    const nameArtists = (index) => {
+        const artists = songs[index].artists
+        let nameArtists = ''
+        artists.forEach((artist, index) => {
+            if (index === 0) {
+                nameArtists += artist.name
+            } else {
+                nameArtists += `, ${artist.name}`
+            }
+        })
+        return nameArtists
+    }
+
     return (
         <div className={mpActive ? "flex flex-col mt-5 w-[716px] max-md:w-full max-md:h-2/3 max-md:justify-end max-md:mt-5" : "flex flex-col w-[716px] max-md:w-full max-md:overflow-clip"}>
             {/* Top Songs Container */}
@@ -115,7 +128,7 @@ const SongsContainer = ({ songs, setSongSelected, mpActive, setMpActive }) => {
                                     <h1 className="font-medium">{songs.name}</h1>
                                     <div className="flex items-center text-nowrap">
                                         <p className="text-black bg-neutral-400 text-xs font-light px-1 pt-0.5 rounded-sm scale-75 -ml-1">LYRICS</p>
-                                        <p className="text-gray-300 text-sm text-nowrap">{songs.artists[0].name}</p>
+                                        <p className="text-gray-300 text-sm text-nowrap">{nameArtists(index)}</p>
                                     </div>
                                 </div>
                             </div>

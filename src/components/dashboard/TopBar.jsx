@@ -21,6 +21,7 @@ const TopBar = ({ setSongs, songSelected }) => {
 
         params.append('q', encodeURIComponent(`remaster artist:${form.search} artist:${form.artist}`))
         params.append('type', form.type)
+        params.append('limit', 50)
 
         const queryString = params.toString()
         const url = 'https://api.spotify.com/v1/search'
@@ -37,7 +38,7 @@ const TopBar = ({ setSongs, songSelected }) => {
             'application/json',
             token
         )
-        setSongs(response.tracks.items)
+        reorderByPopularity(response.tracks.items)
     }
 
     const handleResetSearch =  () => {
@@ -59,6 +60,13 @@ const TopBar = ({ setSongs, songSelected }) => {
             token
         )
         console.log(playSong)
+    }
+
+    const reorderByPopularity = (songs) => {
+        const sortedSongs = songs.sort((a, b) => {
+            return b.popularity - a.popularity
+        })
+        setSongs(sortedSongs)
     }
 
     return (
