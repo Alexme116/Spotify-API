@@ -20,10 +20,13 @@ const MusicPlayer = ({ songSelected, mpActive }) => {
     }
 
     const HandleSongChanged = () => {
-        const song = document.getElementById("song")
-        const icon = document.getElementById("play-pause")
-        icon.src = pauseIcon
-        song.play()
+        const token = localStorage.getItem('token')
+        if (token == "undefined" || token == null) {
+            const song = document.getElementById("song")
+            const icon = document.getElementById("play-pause")
+            icon.src = pauseIcon
+            song.play()
+        }
     }
 
     const HandleSongUpdate = () => {

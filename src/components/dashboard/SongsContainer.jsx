@@ -21,6 +21,23 @@ const SongsContainer = ({ songs, setSongSelected, mpActive, setMpActive }) => {
         const id = e.target.id
         setSongSelected(songs[id])
         setMpActive(true)
+        handlePlayMusic(songs[id].uri)
+    }
+
+    const handlePlayMusic = async (song) => {
+        const token = `Bearer ${localStorage.getItem('token')}`
+        const data = {
+            uris: [song]
+        }
+        const id_device = `${localStorage.getItem('id_device')}`
+        const playSong = await fetchSpotifyApi(
+            `https://api.spotify.com/v1/me/player/play?device_id=${id_device}`,
+            'PUT',
+            JSON.stringify(data),
+            'application/json',
+            token
+        )
+        console.log(playSong)
     }
 
     const handlePrueba = async () => {
@@ -61,7 +78,7 @@ const SongsContainer = ({ songs, setSongSelected, mpActive, setMpActive }) => {
             'application/json',
             token
         )
-        console.log(response)
+        localStorage.setItem('id_device', response.devices[0].id)
     }
 
     return (

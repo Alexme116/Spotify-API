@@ -50,7 +50,7 @@ const TopBar = ({ setSongs, songSelected }) => {
         const data = {
             uris: [songSelected.uri]
         }
-        const id_device = 'e5b042a6a5763cadab38f51aae8e178ff4877722'
+        const id_device = '627e8d1e09a9c92348cac12d9da9b34c9775a876'
         const playSong = await fetchSpotifyApi(
             `https://api.spotify.com/v1/me/player/play?device_id=${id_device}`,
             'PUT',

@@ -22,24 +22,6 @@ const Register = () => {
     const handleLogin = async() => {
         const codeChallengeProm = await getDataAuth()
         authFLow(codeChallengeProm)
-
-        // const cliend_id = '4d0d57fca6c94a5882c84526761e0261'
-        // const client_secret = '1576ee16cbf24853b74494d342c394c9'
-        // const body = 'grant_type=client_credentials&client_id=your-client-id&client_secret=your-client-secret'
-        // const url = 'https://accounts.spotify.com/api/token'
-        // const contentType = 'application/x-www-form-urlencoded'
-        // const token = 'Basic ' + btoa(cliend_id + ':' + client_secret)
-
-        // const response = await fetchSpotifyApi(
-        //     url,
-        //     'POST',
-        //     body,
-        //     contentType,
-        //     token
-        // )
-
-        // localStorage.setItem('token', response.access_token)
-        // navigate('/dashboard')
     }
 
     return (

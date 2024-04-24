@@ -13,7 +13,7 @@ const Nav = () => {
                 </div>
 
                 {/* Log Out */}
-                <a href="/">
+                <a href="/register">
                     <h1 className="bg-[#6d6d6d4f] w-40 py-1 text-[#c50000] font-medium text-xl text-center border-2 border-[#126b1579] hover:border-[#79ff803f] rounded-3xl hover:bg-[#ffffff21]
                     max-md:w-28">
                         Log Out
