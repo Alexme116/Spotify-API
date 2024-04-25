@@ -46,7 +46,7 @@ const TopBar = ({ setSongs, songSelected }) => {
     }
 
     const handlePlayMusic = async () => {
-        console.log(songSelected.uri)
+        console.log(songSelected)
         const token = `Bearer ${localStorage.getItem('token')}`
         const data = {
             uris: [songSelected.uri]
