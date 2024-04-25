@@ -10,15 +10,8 @@ const TopBar = ({ setSongs, songSelected }) => {
         type: 'track'
     }
 
-    const handleSongChange = (e) => {
-        form.search = e.target.value
-        console.log(form.search)
-        handleSearch()
-    }
-
-    const handleArtistChange = (e) => {
+    const handleSearchChange = (e) => {
         form.artist = e.target.value
-        console.log(form.artist)
         handleSearch()
     }
 
@@ -75,26 +68,6 @@ const TopBar = ({ setSongs, songSelected }) => {
         setSongs(sortedSongs)
     }
 
-    const handleHiddeArtist = () => {
-        const artistSearch = document.getElementById('artist-search')
-        artistSearch.style.display = 'none'
-    }
-
-    const handleUnhiddeArtist = () => {
-        const artistSearch = document.getElementById('artist-search')
-        artistSearch.style.display = 'block'
-    }
-
-    const handleHiddeSong = () => {
-        const songSearch = document.getElementById('song-search')
-        songSearch.style.display = 'none'
-    }
-
-    const handleUnhiddeSong = () => {
-        const songSearch = document.getElementById('song-search')
-        songSearch.style.display = 'block'
-    }
-
     return (
         <div className="flex justify-between mb-10 relative
         max-md:w-full max-md:mb-5 max-md:justify-center">
@@ -102,29 +75,12 @@ const TopBar = ({ setSongs, songSelected }) => {
             <div className='flex justify-between w-[50rem]
             max-md:flex max-md:w-full'>
                 <input
-                    id="song-search"
                     type="text"
-                    placeholder="Search for song..."
-                    onChange={handleSongChange}
-                    onFocus={handleHiddeArtist}
-                    onBlur={handleUnhiddeArtist}
+                    placeholder="Search for artist, and then song..."
+                    onChange={handleSearchChange}
                     onKeyDown={ (e) => { if (e.key === 'Enter') handleResetSearch() } }
-                    className="w-[25rem] h-14 pl-14 pr-4 placeholder:text-white bg-[url('/src/assets/search-icon.svg')] bg-no-repeat bg-[8px] bg-contain
+                    className="w-[50rem] h-14 pl-14 pr-4 placeholder:text-white bg-[url('/src/assets/search-icon.svg')] bg-no-repeat bg-[8px] bg-contain
                         rounded-3xl bg-[#183624] backdrop-blur-sm shadow-[0_4px_30px_-15px_rgba(0,0,0,1)] border-2 border-[#79ff803f] outline-none
-                        border-r-0 rounded-r-none
-                        max-md:w-full max-md:mx-5"
-                />
-                <input
-                    id="artist-search"
-                    type="text"
-                    placeholder="Search for artist..."
-                    onChange={handleArtistChange}
-                    onFocus={handleHiddeSong}
-                    onBlur={handleUnhiddeSong}
-                    onKeyDown={ (e) => { if (e.key === 'Enter') handleResetSearch() } }
-                    className="w-[25rem] h-14 pl-14 pr-4 placeholder:text-white bg-[url('/src/assets/search-icon.svg')] bg-no-repeat bg-[8px] bg-contain
-                        rounded-3xl bg-[#183624] backdrop-blur-sm shadow-[0_4px_30px_-15px_rgba(0,0,0,1)] border-2 border-[#79ff803f] outline-none
-                        border-l-0 rounded-l-none
                         max-md:w-full max-md:mx-5"
                 />
             </div>
