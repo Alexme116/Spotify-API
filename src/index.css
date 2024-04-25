@@ -66,20 +66,6 @@
     }
 }
 
-/* ---------------- Search Section ---------------- */
-#song-search:focus {
-    width: 50rem;
-    border-right-width: 2px;
-    border-radius: 1.5rem;
-}
-#song-search:not(:focus) {
-}
-#artist-search:focus {
-    width: 50rem;
-    border-left-width: 2px;
-    border-radius: 1.5rem;
-}
-
 
 /* ---------------- Profile Section ---------------- */
 #profile-container {

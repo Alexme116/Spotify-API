@@ -75,6 +75,7 @@ const TopBar = ({ setSongs, songSelected }) => {
             <div className='flex justify-between w-[50rem]
             max-md:flex max-md:w-full'>
                 <input
+                    id="search"
                     type="text"
                     placeholder="Search for artist, and then song..."
                     onChange={handleSearchChange}

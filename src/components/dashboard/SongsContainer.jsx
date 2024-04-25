@@ -128,7 +128,7 @@ const SongsContainer = ({ songs, setSongSelected, mpActive, setMpActive }) => {
                                     <h1 className="font-medium">{songs.name}</h1>
                                     <div className="flex items-center text-nowrap">
                                         <p className="text-black bg-neutral-400 text-xs font-light px-1 pt-0.5 rounded-sm scale-75 -ml-1">LYRICS</p>
-                                        <p className="text-gray-300 text-sm text-nowrap">{nameArtists(index)}</p>
+                                        <p className="text-gray-300 text-sm text-nowrap max-md:w-36">{nameArtists(index)}</p>
                                     </div>
                                 </div>
                             </div>
