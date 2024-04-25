@@ -1,10 +1,13 @@
 import spotifyIcon from "../../assets/spotify-icon.png"
+import { useNavigate } from 'react-router-dom';
 
 const Nav = () => {
+    const navigate = useNavigate()
+
     const HandleLogOut = () => {
         localStorage.removeItem('token')
         localStorage.removeItem('id_device')
-        window.location.href = '/register'
+        navigate('/register')
     }
 
     return (

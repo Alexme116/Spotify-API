@@ -40,7 +40,7 @@ const SongsContainer = ({ songs, setSongSelected, mpActive, setMpActive }) => {
         console.log(playSong)
     }
 
-    const handlePrueba = async () => {
+    const handleToken = async () => {
         const urlParams = new URLSearchParams(window.location.search);
         let code = urlParams.get('code');
         let codeVerifier = localStorage.getItem('code_verifier');
@@ -100,7 +100,7 @@ const SongsContainer = ({ songs, setSongSelected, mpActive, setMpActive }) => {
             <div className="flex items-center justify-between mb-3
             max-md:w-full max-md:px-2">
                 <h1 className="ml-2 font-medium text-xl">Searched songs</h1>
-                <button onClick={handlePrueba} className="rounded-full bg-[#6464643f] p-3 rotate-90"><img src={dotsIcon} alt="dots" width={"20px"}/></button>
+                <button onClick={handleToken} className="rounded-full bg-[#6464643f] p-3 rotate-90"><img src={dotsIcon} alt="dots" width={"20px"}/></button>
             </div>
             {/* Songs Container Section */}
             <div className={mpActive ? "flex flex-col h-[306px] overflow-x-hidden r-scrollbar max-md:h-[27rem] max-md:pb-0" :
