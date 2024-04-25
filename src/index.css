@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ---------------- Song Cntainer Section ---------------- */
+/* ---------------- Song Container Section ---------------- */
 .r-scrollbar::-webkit-scrollbar {
     display: none;
 }
@@ -64,6 +64,20 @@
     #mp-container:hover {
         width: 90%;
     }
+}
+
+/* ---------------- Search Section ---------------- */
+#song-search:focus {
+    width: 50rem;
+    border-right-width: 2px;
+    border-radius: 1.5rem;
+}
+#song-search:not(:focus) {
+}
+#artist-search:focus {
+    width: 50rem;
+    border-left-width: 2px;
+    border-radius: 1.5rem;
 }
 
 
