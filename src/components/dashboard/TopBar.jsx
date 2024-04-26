@@ -18,7 +18,7 @@ const TopBar = ({ setSongs, songSelected }) => {
     const handleSearch = async () => {
         const params = new URLSearchParams()
 
-        params.append('q', encodeURIComponent(`remaster artist:${form.search} artist:${form.artist}`))
+        params.append('q', encodeURIComponent(`remaster artist:${form.search.toLowerCase()} artist:${form.artist.toLowerCase()}`))
         params.append('type', form.type)
         params.append('limit', 50)
 
