@@ -1,4 +1,5 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import { useNavigate } from 'react-router-dom'
 import MusicPlayer from "./MusicPlayer"
 import SongsContainer from "./SongsContainer"
 import TopBar from "./TopBar"
@@ -11,6 +12,12 @@ const DashBoard = () => {
     const [songSelected, setSongSelected] = useState({})
     const [songs, setSongs] = useState(songsDefault)
     const [mpActive, setMpActive] = useState(false)
+
+    const navigate = useNavigate()
+
+    useEffect(() => {
+        navigate('/register')
+    })
 
     return (
         // Main Container Background
