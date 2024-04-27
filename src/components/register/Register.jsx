@@ -21,7 +21,7 @@ const Register = () => {
 
     const handleLogin = async() => {
         const codeVerifier = localStorage.getItem('code_verifier');
-        console.log(codeVerifier.codeVerifier)
+        console.log(codeVerifier.codeVerifier.codeVerifier)
 
         const codeChallengeProm = await getDataAuth()
         authFLow(codeChallengeProm)
