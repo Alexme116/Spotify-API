@@ -4,6 +4,7 @@ import likeIcon from "../../assets/like-icon.svg"
 import likedIcon from "../../assets/liked-icon.svg"
 import playIcon from "../../assets/play-icon.svg"
 import dotsIcon from "../../assets/dots-icon.svg"
+import lockIcon from "../../assets/lock-icon.svg"
 
 const SongsContainer = ({ songs, setSongSelected, mpActive, setMpActive }) => {
     const HandleLike = (e) => {
@@ -41,6 +42,9 @@ const SongsContainer = ({ songs, setSongSelected, mpActive, setMpActive }) => {
     }
 
     const handleToken = async () => {
+        const icon = document.getElementById("lock-icon")
+        icon.hidden = true
+
         const urlParams = new URLSearchParams(window.location.search);
         let code = urlParams.get('code');
         let codeVerifier = localStorage.getItem('code_verifier');
@@ -100,7 +104,7 @@ const SongsContainer = ({ songs, setSongSelected, mpActive, setMpActive }) => {
             <div className="flex items-center justify-between mb-3
             max-md:w-full max-md:px-2">
                 <h1 className="ml-2 font-medium text-xl">Searched songs</h1>
-                <button onClick={handleToken} className="rounded-full bg-[#6464643f] p-3 rotate-90"><img src={dotsIcon} alt="dots" width={"20px"}/></button>
+                <button id='lock-icon' onClick={handleToken} className="rounded-full bg-[#6464643f] p-3"><img src={lockIcon} alt="lock" width={"20px"}/></button>
             </div>
             {/* Songs Container Section */}
             <div className={mpActive ? "flex flex-col h-[306px] overflow-x-hidden r-scrollbar max-md:h-[27rem] max-md:pb-0" :
