@@ -1,10 +1,11 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import MusicPlayer from "./MusicPlayer"
 import SongsContainer from "./SongsContainer"
 import TopBar from "./TopBar"
 import Nav from "./Nav"
 import Wrapped from "./Wrapped"
 import songsDefault from './ObjetoCanciones'
+import { useNavigate } from "react-router"
 
 
 const DashBoard = () => {
@@ -12,6 +13,15 @@ const DashBoard = () => {
     const [songs, setSongs] = useState(songsDefault)
     const [mpActive, setMpActive] = useState(false)
 
+    const navigate = useNavigate()
+
+    useEffect(() => {
+        const token = localStorage.getItem('token')
+        if ( token == null || token == "undefined") {
+            navigate('/register')
+        }
+    })
+    
     return (
         // Main Container Background
         <div className="flex items-center justify-center h-screen text-white bg-gradient-to-b from-[#3a6d3f] to-[#030f04]
