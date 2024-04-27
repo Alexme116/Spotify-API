@@ -16,12 +16,12 @@ const DashBoard = () => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        const token = localStorage.getItem('token')
-        if ( token == null || token == "undefined") {
+        const codeVerifier = localStorage.getItem('code_verifier')
+        if ( codeVerifier == null || codeVerifier == "undefined") {
             navigate('/register')
         }
     })
-    
+
     return (
         // Main Container Background
         <div className="flex items-center justify-center h-screen text-white bg-gradient-to-b from-[#3a6d3f] to-[#030f04]
