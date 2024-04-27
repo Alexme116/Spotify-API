@@ -12,12 +12,16 @@ const DashBoard = () => {
     const [songSelected, setSongSelected] = useState({})
     const [songs, setSongs] = useState(songsDefault)
     const [mpActive, setMpActive] = useState(false)
+    const [start, setStart] = useState(true)
 
     const navigate = useNavigate()
 
     useEffect(() => {
-        navigate('/register')
-    })
+        if (start) {
+            navigate('/register')
+        }
+        setStart(false)
+    }, [start, navigate])
 
     return (
         // Main Container Background
