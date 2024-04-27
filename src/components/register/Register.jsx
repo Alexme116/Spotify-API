@@ -22,7 +22,6 @@ const Register = () => {
     const handleLogin = async() => {
         const codeChallengeProm = await getDataAuth()
         authFLow(codeChallengeProm)
-        navigate('dashboard')
     }
 
     return (

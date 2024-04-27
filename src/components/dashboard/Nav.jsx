@@ -7,7 +7,7 @@ const Nav = () => {
     const HandleLogOut = () => {
         localStorage.removeItem('token')
         localStorage.removeItem('id_device')
-        navigate('/')
+        navigate('/register')
     }
 
     return (
