@@ -42,34 +42,37 @@ const SongsContainer = ({ songs, setSongSelected, mpActive, setMpActive }) => {
     }
 
     const handleToken = async () => {
-        const icon = document.getElementById("lock-icon")
-        icon.hidden = true
+        const token = window.localStorage.getItem('token')
+        if (token == "undefined" || token == null) {
+            const icon = document.getElementById("lock-icon")
+            icon.hidden = true
 
-        const urlParams = new URLSearchParams(window.location.search);
-        let code = urlParams.get('code');
-        let codeVerifier = localStorage.getItem('code_verifier');
-        console.log({ codeVerifier });
-        const url = 'https://accounts.spotify.com/api/token';
-        const clientId = '4d0d57fca6c94a5882c84526761e0261';
-        const redirectUri = 'https://spotify-api-full-song.vercel.app/';
-        const payload = {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: new URLSearchParams({
-            client_id: clientId,
-            grant_type: 'authorization_code',
-            code,
-            redirect_uri: redirectUri,
-            code_verifier: codeVerifier,
-        }),
-        };
+            const urlParams = new URLSearchParams(window.location.search);
+            let code = urlParams.get('code');
+            let codeVerifier = localStorage.getItem('code_verifier');
+            console.log({ codeVerifier });
+            const url = 'https://accounts.spotify.com/api/token';
+            const clientId = '4d0d57fca6c94a5882c84526761e0261';
+            const redirectUri = 'https://spotify-api-full-song.vercel.app/';
+            const payload = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams({
+                client_id: clientId,
+                grant_type: 'authorization_code',
+                code,
+                redirect_uri: redirectUri,
+                code_verifier: codeVerifier,
+            }),
+            };
 
-        const body = await fetch(url, payload);
-        const response = await body.json();
+            const body = await fetch(url, payload);
+            const response = await body.json();
 
-        localStorage.setItem('token', response.access_token);
+            localStorage.setItem('token', response.access_token);
+        }
     }
 
     const getDeviceId = async () => {
