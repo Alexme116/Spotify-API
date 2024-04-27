@@ -9,12 +9,12 @@ import DashBoard from './components/dashboard/DashBoard'
 
 const router = createBrowserRouter([
   {
-    path: '/vite-react-router/',
+    path: '/',
     element: <App />,
     children: [
-      { path: '/vite-react-router/', element: <Register /> },
-      { path: '/vite-react-router/login', element: <Login /> },
-      { path: '/vite-react-router/dashboard', element: <DashBoard /> },
+      { path: '/', element: <Register /> },
+      { path: '/login', element: <Login /> },
+      { path: '/dashboard', element: <DashBoard /> },
     ],
   },
 ])
