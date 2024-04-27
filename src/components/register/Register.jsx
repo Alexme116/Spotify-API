@@ -20,11 +20,11 @@ const Register = () => {
     }
 
     const handleLogin = async() => {
-        const codeVerifier = localStorage.getItem('code_verifier');
-        console.log(codeVerifier.codeVerifier.codeVerifier)
-
-        const codeChallengeProm = await getDataAuth()
-        authFLow(codeChallengeProm)
+        const codeVerifier = window.localStorage.getItem('code_verifier');
+        if (codeVerifier.codeVerifier == "undefined" || codeVerifier.codeVerifier == null) {
+            const codeChallengeProm = await getDataAuth()
+            authFLow(codeChallengeProm)
+        }
         navigate('dashboard')
     }
 
