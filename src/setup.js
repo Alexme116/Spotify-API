@@ -31,7 +31,7 @@ export const getDataAuth = async () => {
 
   export const authFLow = (codeChallenge) => {
     const clientId = '4d0d57fca6c94a5882c84526761e0261';
-    const redirectUri = 'https://spotify-api-full-song.vercel.app/dashboard';
+    const redirectUri = 'https://spotify-api-full-song.vercel.app/';
 
  
     const scope = 'user-read-playback-state user-modify-playback-state user-read-private user-read-email';
