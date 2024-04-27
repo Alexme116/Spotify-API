@@ -43,10 +43,9 @@ const SongsContainer = ({ songs, setSongSelected, mpActive, setMpActive }) => {
 
     const handleToken = async () => {
         const token = window.localStorage.getItem('token')
+        const icon = document.getElementById("lock-icon")
+        icon.hidden = true
         if (token == "undefined" || token == null) {
-            const icon = document.getElementById("lock-icon")
-            icon.hidden = true
-
             const urlParams = new URLSearchParams(window.location.search);
             let code = urlParams.get('code');
             let codeVerifier = localStorage.getItem('code_verifier');
