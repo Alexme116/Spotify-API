@@ -8,6 +8,7 @@ import lockIcon from "../../assets/lock-icon.svg";
 import lockedIcon from "../../assets/locked-icon.svg";
 import linkIcon from "../../assets/link-icon.svg";
 import syncIcon from "../../assets/sync-icon.svg";
+import checkIcon from "../../assets/check-icon.svg";
 
 const DataLink = () => {
 
@@ -57,9 +58,14 @@ const DataLink = () => {
 
     const handleSpotifyLink = () => {
         window.open('https://open.spotify.com/', '_blank')
+        const linkIcon = document.getElementById("linkIcon")
+        linkIcon.src = checkIcon
     }
 
     const getDeviceId = async () => {
+        const syncIcon = document.getElementById("syncIcon")
+        syncIcon.src = checkIcon
+
         const url = 'https://api.spotify.com/v1/me/player/devices'
         const token = `Bearer ${localStorage.getItem('token')}`
         const response = await fetchSpotifyApi(
@@ -98,11 +104,11 @@ const DataLink = () => {
                         <h1 className="font-bold text-xl">Get Token</h1>
                     </div>
                     <div id="spotifyLink" className="hidden flex-col items-center mt-5">
-                        <button onClick={handleSpotifyLink}><img src={linkIcon} alt="link" width={"50px"} /></button>
+                        <button onClick={handleSpotifyLink}><img id="linkIcon" src={linkIcon} alt="link" width={"50px"} /></button>
                         <h1 className="font-bold text-xl">Open Spotify</h1>
                     </div>
                     <div id="syncDevice" className="hidden flex-col items-center mt-5">
-                        <button onClick={getDeviceId}><img src={syncIcon} alt="sync" width={"50px"} /></button>
+                        <button onClick={getDeviceId}><img id="syncIcon" src={syncIcon} alt="sync" width={"50px"} /></button>
                         <h1 className="font-bold text-xl">Sync Device</h1>
                     </div>
                     <div className="mt-10">
