@@ -5,9 +5,7 @@ const Nav = () => {
     const navigate = useNavigate()
 
     const HandleLogOut = () => {
-        localStorage.removeItem('token')
-        localStorage.removeItem('id_device')
-        navigate('/register')
+        navigate('/')
     }
 
     return (
