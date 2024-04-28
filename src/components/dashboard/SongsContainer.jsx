@@ -4,7 +4,6 @@ import likeIcon from "../../assets/like-icon.svg"
 import likedIcon from "../../assets/liked-icon.svg"
 import playIcon from "../../assets/play-icon.svg"
 import dotsIcon from "../../assets/dots-icon.svg"
-import lockIcon from "../../assets/lock-icon.svg"
 
 const SongsContainer = ({ songs, setSongSelected, mpActive, setMpActive }) => {
     const HandleLike = (e) => {
@@ -41,51 +40,6 @@ const SongsContainer = ({ songs, setSongSelected, mpActive, setMpActive }) => {
         console.log(playSong)
     }
 
-    const handleToken = async () => {
-        const token = window.localStorage.getItem('token')
-        const icon = document.getElementById("lock-icon")
-        icon.hidden = true
-        if (token == "undefined" || token == null) {
-            const urlParams = new URLSearchParams(window.location.search);
-            let code = urlParams.get('code');
-            let codeVerifier = localStorage.getItem('code_verifier');
-            const url = 'https://accounts.spotify.com/api/token';
-            const clientId = '4d0d57fca6c94a5882c84526761e0261';
-            const redirectUri = 'https://spotify-api-full-song.vercel.app/';
-            const payload = {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: new URLSearchParams({
-                client_id: clientId,
-                grant_type: 'authorization_code',
-                code,
-                redirect_uri: redirectUri,
-                code_verifier: codeVerifier,
-            }),
-            };
-
-            const body = await fetch(url, payload);
-            const response = await body.json();
-
-            localStorage.setItem('token', response.access_token);
-        }
-    }
-
-    const getDeviceId = async () => {
-        const url = 'https://api.spotify.com/v1/me/player/devices'
-        const token = `Bearer ${localStorage.getItem('token')}`
-        const response = await fetchSpotifyApi(
-            url,
-            'GET',
-            null,
-            'application/json',
-            token
-        )
-        localStorage.setItem('id_device', response.devices[0].id)
-    }
-
     const nameArtists = (index) => {
         const artists = songs[index].artists
         let nameArtists = ''
@@ -105,7 +59,7 @@ const SongsContainer = ({ songs, setSongSelected, mpActive, setMpActive }) => {
             <div className="flex items-center justify-between mb-3
             max-md:w-full max-md:px-2">
                 <h1 className="ml-2 font-medium text-xl">Searched songs</h1>
-                <button id='lock-icon' onClick={handleToken} className="rounded-full bg-[#6464643f] p-3"><img src={lockIcon} alt="lock" width={"20px"}/></button>
+                <button id='lock-icon' className="rounded-full bg-[#6464643f] p-3 rotate-90"><img src={dotsIcon} alt="lock" width={"20px"}/></button>
             </div>
             {/* Songs Container Section */}
             <div className={mpActive ? "flex flex-col h-[306px] overflow-x-hidden r-scrollbar max-md:h-[27rem] max-md:pb-0" :
@@ -147,7 +101,7 @@ const SongsContainer = ({ songs, setSongSelected, mpActive, setMpActive }) => {
                             {/* Like & Dots */}
                             <div className="flex items-center w-14">
                                 <button onClick={HandleLike}><img id={index} src={likeIcon} alt="like" width={"30px"}/></button>
-                                <button onClick={getDeviceId} className="ml-3"><img src={dotsIcon} alt="like" width={"25px"}/></button>
+                                <button className="ml-3"><img src={dotsIcon} alt="like" width={"25px"}/></button>
                             </div>
                         </div>
                     )
