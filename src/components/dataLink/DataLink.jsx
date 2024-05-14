@@ -34,7 +34,7 @@ const DataLink = () => {
             let codeVerifier = localStorage.getItem('code_verifier');
             const url = 'https://accounts.spotify.com/api/token';
             const clientId = '4d0d57fca6c94a5882c84526761e0261';
-            const redirectUri = 'https://spotify-api-full-song.vercel.app/';
+            const redirectUri = 'https://spotify-api-rep.vercel.app/';
             const payload = {
             method: 'POST',
             headers: {
