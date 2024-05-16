@@ -33,7 +33,6 @@ export const getDataAuth = async () => {
     const clientId = '4d0d57fca6c94a5882c84526761e0261';
     const redirectUri = 'https://spotify-api-rep.vercel.app/';
 
- 
     const scope = 'user-read-playback-state user-modify-playback-state user-read-private user-read-email';
     const authUrl = new URL('https://accounts.spotify.com/authorize');
     const params = {

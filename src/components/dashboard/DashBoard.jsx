@@ -24,7 +24,7 @@ const DashBoard = () => {
 
     return (
         // Main Container Background
-        <div className="flex items-center justify-center h-screen text-white bg-gradient-to-b from-[#3a6d3f] to-[#030f04]
+        <div className="flex items-center justify-center w-svw h-svh text-white bg-gradient-to-b from-[#3a6d3f] to-[#030f04]
         max-md:h-[100svh]">
             {/* Main Section */}
             <div className="border-4 rounded-3xl flex bg-[#17251C] border-[#ffffff71] shadow-xl shadow-[#467c4475] h-[47rem] overflow-hidden
