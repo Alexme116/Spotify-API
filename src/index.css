@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ---------------- Global Section ---------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 /* ---------------- Song Container Section ---------------- */
 .r-scrollbar::-webkit-scrollbar {
     display: none;
