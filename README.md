@@ -21,3 +21,7 @@
     ```bash
     npm run dev
     ```
+
+## Project Images
+
+![SpotifyApiDashboard.png](https://github.com/Alexme116/Spotify-API/blob/main/SpotifyApiDashboard.png?raw=true)
